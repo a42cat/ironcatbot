@@ -18,7 +18,7 @@ class ConfigOther extends ConfigMain
     
     public static function getUrlApi() {
         
-        $result = self::URL_API . '~' . self::TOKEN . '~/setWebhook?url=' . self::DOMAIN_BOT;
+        $result = self::URL_API . self::TOKEN . '/setWebhook?url=' . self::DOMAIN_BOT;
         
         return $result;
         
