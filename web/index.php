@@ -2,10 +2,10 @@
 
 require('../vendor/autoload.php');
 
-echo "<pre>";
-echo "GET: <br>";
-var_dump($_GET);
-echo "POST: <br>";
-var_dump($_POST);
-echo "</pre>";
+use IronCatBot\Classes\Bot\Bot;
+use IronCatBot\Classes\Config\ConfigOther as CFG;
 
+/*$bot = new \TelegramBot\Api\Client(CFG::GetToken());
+var_dump($bot);*/
+
+Bot::Init();
