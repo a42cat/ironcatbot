@@ -1,5 +1,10 @@
 <?php
 
+echo 'Здесь будет жить кошачий бот )))';
+echo 'p.s.';
+echo 'Зайка ты муррррк)))';
+
+
 require('../vendor/autoload.php');
 
 $app = new Silex\Application();
