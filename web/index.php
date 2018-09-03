@@ -1,30 +1,9 @@
 <?php
 
-echo 'Здесь будет жить кошачий бот )))';
-echo 'p.s.';
-echo 'Зайка ты муррррк)))';
-
-
 require('../vendor/autoload.php');
 
-$app = new Silex\Application();
-$app['debug'] = true;
+echo 'GET: \r\n';
+var_dump($_GET);
+echo 'POST: \r\n';
+var_dump($_POST);
 
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
-
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/views',
-));
-
-// Our web handlers
-
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
-});
-
-$app->run();
