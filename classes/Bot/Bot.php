@@ -8,6 +8,7 @@
 
 namespace IronCatBot\Classes\Bot;
 use IronCatBot\Classes\Config\ConfigOther as CFG;
+use IronCatBot\Classes\Log\Log;
 
 class Bot
 {
@@ -15,8 +16,17 @@ class Bot
     public static function Init()
     {
         $bot = new \TelegramBot\Api\BotApi(CFG::GetToken());
-        
-        $bot->getUpdates();
+        $bot->command('start', function ($message) use ($bot) {
+            $answer = 'Добро пожаловать!';
+            $bot->sendMessage($message->getChat()->getId(), $answer);
+        });
+
+        // команда для помощи
+        $bot->command('help', function ($message) use ($bot) {
+            $answer = 'Команды:
+        /help - вывод справки';
+            $bot->sendMessage($message->getChat()->getId(), $answer);
+        });
     
         $bot->run();
         
