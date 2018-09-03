@@ -2,8 +2,10 @@
 
 require('../vendor/autoload.php');
 
-echo "GET: \r\n";
+echo "<pre>";
+echo "GET: <br>";
 var_dump($_GET);
-echo "POST: \r\n";
+echo "POST: <br>";
 var_dump($_POST);
+echo "</pre>";
 
