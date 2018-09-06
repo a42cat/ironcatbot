@@ -6,6 +6,8 @@ use IronCatBot\Classes\Bot\Bot;
 use IronCatBot\Classes\Config\ConfigOther as CFG;
 use IronCatBot\Classes\Log\Log;
 
-echo 'test';
+$config_var = getenv('TEST');
+
+var_dump($config_var);
 
 Bot::Init();
