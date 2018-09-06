@@ -17,10 +17,7 @@ class Bot
     
     public static function Init()
     {
-    
-        $config_var = getenv('TEST');
-        var_dump($config_var);
-        
+
         $bot = new BotApi(CFG::GetToken());
         $client = new Client(CFG::GetToken());
         $client->command('start', function ($message) use ($bot) {
