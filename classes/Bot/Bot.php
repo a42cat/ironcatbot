@@ -7,7 +7,7 @@
  */
 
 namespace IronCatBot\Classes\Bot;
-use IronCatBot\Classes\Config\ConfigOther as CFG;
+use IronCatBot\Classes\Config\Config as CFG;
 use IronCatBot\Classes\Log\Log;
 use TelegramBot\Api\BotApi;
 use TelegramBot\Api\Client;
@@ -17,6 +17,9 @@ class Bot
     
     public static function Init()
     {
+        
+        echo CFG::GetToken();
+        echo CFG::getUrlApi();
 
         /*$bot = new BotApi(CFG::GetToken());
         $client = new Client(CFG::GetToken());

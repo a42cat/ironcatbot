@@ -3,4 +3,3 @@ vendor/
 .env
 .tar
 .gz
-#classes/Config/ConfigMain.php

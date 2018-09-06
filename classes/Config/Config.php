@@ -8,7 +8,7 @@
 
 namespace IronCatBot\Classes\Config;
 
-class ConfigOther extends ConfigMain
+class Config
 {
     
     const URL_API = 'https://api.telegram.org/bot';
@@ -17,13 +17,17 @@ class ConfigOther extends ConfigMain
     
     // https: //api.telegram.org/bot~token~/setWebhook?url=https: //example.ru/path
     
+    public static function GetToken() {
+        return getenv('TOKEN');
+    }
+    
     public static function getDocRoot() {
         return $_SERVER['DOCUMENT_ROOT'];
     }
     
     public static function getUrlApi() {
         
-        $result = self::URL_API . self::TOKEN . '/setWebhook?url=' . self::DOMAIN_BOT;
+        $result = self::URL_API . self::GetToken() . '/setWebhook?url=' . self::DOMAIN_BOT;
         
         return $result;
         
