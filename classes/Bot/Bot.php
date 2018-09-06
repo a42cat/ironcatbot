@@ -17,11 +17,8 @@ class Bot
     
     public static function Init()
     {
-        
-        echo CFG::GetToken();
-        echo CFG::getUrlApi();
 
-        /*$bot = new BotApi(CFG::GetToken());
+        $bot = new BotApi(CFG::GetToken());
         $client = new Client(CFG::GetToken());
         $client->command('start', function ($message) use ($bot) {
             $answer = 'Добро пожаловать!';
@@ -35,7 +32,7 @@ class Bot
             $bot->sendMessage($message->getChat()->getId(), $answer);
         });
     
-        $client->run();*/
+        $client->run();
         
     }
     
