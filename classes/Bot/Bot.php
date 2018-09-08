@@ -13,10 +13,11 @@ use IronCatBot\Classes\Log\Log;
 class Bot
 {
 
+    
     public static function Init()
     {
         
-        Router::switchEvents();
+        Router::ExecEvents();
     
     }
     

@@ -33,7 +33,7 @@ class Router
 
     }
     
-    public static function switchEvents() {
+    public static function ExecEvents() {
         
         $json = self::getJson();
         $type = self::getTypes();
