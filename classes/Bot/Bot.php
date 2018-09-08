@@ -22,6 +22,10 @@ class Bot
         if (!empty($_POST)) {
             Log::WriteErrorLog(json_encode($_POST), 'POST');
         }
+    
+        if (!empty($_REQUEST)) {
+            Log::WriteErrorLog(json_encode($_REQUEST), 'REQUEST');
+        }
         
     
     }
