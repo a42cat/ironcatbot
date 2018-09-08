@@ -17,12 +17,6 @@ class Bot
     {
         
         Router::switchEvents();
-        
-        $output = json_decode(file_get_contents('php://input'), TRUE);
-        
-        if (!empty($output)) {
-            Log::WriteErrorLog(json_encode($output), 'REQUEST');
-        }
     
     }
     

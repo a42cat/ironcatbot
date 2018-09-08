@@ -8,6 +8,7 @@
 
 namespace IronCatBot\Classes\Bot;
 
+use IronCatBot\Classes\Log\Log;
 use IronCatBot\Classes\Bot\Types\Message;
 
 class Router
@@ -26,6 +27,11 @@ class Router
     public static function switchEvents() {
         
         $json = self::getJson();
+        $type = self::getTypes();
+        
+        if ($json) {
+            Log::WriteErrorLog(json_encode($json), $type);
+        }
         
         switch (self::getTypes()) {
             case 'bot_command':
