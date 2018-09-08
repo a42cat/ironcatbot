@@ -20,8 +20,17 @@ class Router
     }
     
     public static function getTypes() {
+
         $json = self::getJson();
-        return $json['message']['chat']['type'];
+        
+        if ($json['message']['entities']) {
+            $type = 'bot_command';
+        } else {
+            $type = $json['message']['chat']['type'];
+        }
+        
+        return $type;
+
     }
     
     public static function switchEvents() {
