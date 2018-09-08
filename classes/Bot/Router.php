@@ -36,15 +36,15 @@ class Router
         switch ($type) {
             case 'bot_command':
                 $textmessage = 'Ответ на системную комманду';
-                Message::sendMessage($textmessage, $json['chat']['id'], $json['message_id'], true);
+                Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message_id'], true);
                 break;
             case 'private':
                 $textmessage = 'Ответ на сообщение в личке';
-                Message::sendMessage($textmessage, $json['chat']['id'], $json['message_id'], true);
+                Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message_id'], true);
                 break;
             case 'group':
                 $textmessage = 'Ответ на сообщение в группе';
-                Message::sendMessage($textmessage, $json['chat']['id'], $json['message_id'], true);
+                Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message_id'], true);
                 break;
         }
     }
