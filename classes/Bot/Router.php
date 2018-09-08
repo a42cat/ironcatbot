@@ -33,7 +33,7 @@ class Router
             Log::WriteErrorLog(json_encode($json), $type);
         }
         
-        switch (self::getTypes()) {
+        switch ($type) {
             case 'bot_command':
                 $textmessage = 'Ответ на системную комманду';
                 Message::sendMessage($textmessage, $json['chat']['id'], $json['message_id'], true);
