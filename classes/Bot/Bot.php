@@ -16,11 +16,11 @@ class Bot
     public static function Init()
     {
         if (!empty($_GET)) {
-            Log::WriteErrorLog(json_encode($_GET), 'GET');
+            Log::WriteErrorLog($_GET, 'GET');
         }
     
         if (!empty($_POST)) {
-            Log::WriteErrorLog(json_encode($_POST), 'POST');
+            Log::WriteErrorLog($_POST, 'POST');
         }
         
     
