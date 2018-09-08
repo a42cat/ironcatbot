@@ -6,7 +6,7 @@
  * Time: 7:45
  */
 
-namespace IronCatBot\Classes\Config;
+namespace IronCatBot\Classes\Bot\Config;
 
 class Config
 {
@@ -27,7 +27,7 @@ class Config
     
     public static function getUrlApi() {
         
-        $result = self::URL_API . self::GetToken() . '/setWebhook?url=' . self::DOMAIN_BOT;
+        $result = self::URL_API . self::GetToken();
         
         return $result;
         
