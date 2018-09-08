@@ -2,6 +2,8 @@
 
 require('../vendor/autoload.php');
 
-use IronCatBot\Classes\Bot\Bot;
+//use IronCatBot\Classes\Bot\Bot;
 
-Bot::Init();
+//Bot::Init();
+
+var_dump(1);
