@@ -7,8 +7,8 @@
  */
 
 namespace IronCatBot\Classes\Bot;
-use IronCatBot\Classes\Bot\Config\Config;
-use IronCatBot\Classes\Log\Log;
+/*use IronCatBot\Classes\Bot\Config\Config;
+use IronCatBot\Classes\Log\Log;*/
 
 class Bot
 {
