@@ -39,10 +39,12 @@ class Router
     }
 
     public static function ExecCmd($json) {
-        $cmd = strtolower($json['text']);
-        $cmd = str_replace('@ironCatBot ', '', $cmd);
-        $cmd = explode(' ', $cmd);
+        $cmd = explode(' ', $json['text']);
+        $cmd[0] = strtolower($cmd[0]);
+        $cmd[0] = str_replace('@ironcatbot', '', $cmd[0]);
+
         $textmessage = '';
+
         switch($cmd[0]) {
             case '/start':
                 $textmessage = 'Бот активирован';
