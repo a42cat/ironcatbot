@@ -8,7 +8,10 @@ use IronCatBot\Classes\Bot\Config\Config;
 //Bot::Init();
 
 try {
+
     $bot = new \TelegramBot\Api\Client(Config::GetToken());
+
+    $bot->sendMessage(Config::DEBUG_CHANNEL_ID, json_encode($message), null, false);
 
     $bot->command('start', function ($message) use ($bot) {
         $test = 'test';
@@ -18,6 +21,8 @@ try {
     $bot->run();
 
 } catch(\TelegramBot\Api\Exception $e) {
+
     $e->getMessage();
+
 }
 
