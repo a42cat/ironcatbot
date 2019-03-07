@@ -66,7 +66,7 @@ class Router
                 break;
             case 'group':
             case 'supergroup':
-                if ($json['message']['from']['username'] == 'a42cat') break;
+                if ($json['message']['from']['username'] != 'a42cat') break;
                 $textmessage = 'Ответ на сообщение в группе';
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
                 break;
