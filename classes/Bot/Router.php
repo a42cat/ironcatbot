@@ -81,8 +81,6 @@ class Router
 
     public static function ExecEvents() {
 
-        session_start();
-        
         $json = self::getJson();
         $type = self::getTypes();
 
@@ -106,9 +104,10 @@ class Router
                 break;
             case 'group':
             case 'supergroup':
-                if (!$_SESSION['STATUS']) break;
-                //if ($json['message']['from']['username'] != 'a42cat') break;
+                //if (!$_SESSION['STATUS']) break;
+                if ($json['message']['from']['username'] != 'a42cat') break;
                 $textmessage = 'Ответ на сообщение в группе';
+                Log::SendLog('session: '.$_SESSION['STATUS'], 'check session');
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
                 break;
         }
