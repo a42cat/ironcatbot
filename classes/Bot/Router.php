@@ -54,7 +54,7 @@ class Router
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
                 break;
             case 'mention':
-                $textmessage = 'Ответ на сообщение в личке';
+                $textmessage = 'Ответ на сообщение с указанием ';
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
                 break;
             case 'channel':
@@ -66,6 +66,7 @@ class Router
                 break;
             case 'group':
             case 'supergroup':
+                if ($json['message']['from']['username'] == 'a42cat') break;
                 $textmessage = 'Ответ на сообщение в группе';
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
                 break;
