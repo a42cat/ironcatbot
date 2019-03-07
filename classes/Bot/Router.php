@@ -80,6 +80,14 @@ class Router
 
     public static function ExecEvents() {
 
+        if (isset($_GET['STATUS'])) {
+            $_SESSION['TEST_STATUS'] = $_GET['STATUS'];
+        }
+
+        if (isset($_GET['GET_STATUS'])) {
+            var_dump($_SESSION['TEST_STATUS']);
+        }
+
         $json = self::getJson();
         $type = self::getTypes();
 

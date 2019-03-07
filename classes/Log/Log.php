@@ -7,7 +7,6 @@
  */
 
 namespace IronCatBot\Classes\Log;
-use IronCatBot\Classes\Bot\Config\Config;
 use IronCatBot\Classes\Bot\Types\Message;
 
 class Log
