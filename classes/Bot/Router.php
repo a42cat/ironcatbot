@@ -39,7 +39,42 @@ class Router
     }
 
     public static function ExecCmd($json) {
+        $cmd = strtolower($json['text']);
+        $cmd = str_replace('@ironCatBot ', '', $cmd);
+        $cmd = explode(' ', $cmd);
+        $textmessage = '';
+        switch($cmd[0]) {
+            case '/start':
+                $textmessage = 'Бот активирован';
+                $_SESSION['STATUS'] = true;
+                break;
+            case '/stop':
+                $_SESSION['STATUS'] = false;
+                $textmessage = 'Бот деактивирован';
+                break;
+            case '/auth':
+                if ($cmd[1] == '' || $cmd[2] == '') {
+                    $textmessage = 'Введите логин и пароль в формате:'.PHP_EOL;
+                    $textmessage = '/auth login password'.PHP_EOL;
+                } else {
+                    $textmessage = 'Проверка авторизации'.PHP_EOL;
+                    $textmessage = 'Выполняю операций с движком...'.PHP_EOL;
+                    $textmessage = 'Авторизация успешна (нет)'.PHP_EOL;
+                }
 
+                break;
+            case '/help':
+                $textmessage = 'Список команд бота'.PHP_EOL;
+                $textmessage = '/start : Запускает работу бота'.PHP_EOL;
+                $textmessage = '/stop : Останавливает работу бота'.PHP_EOL;
+                $textmessage = '/auth : Авторизаций бота в движке'.PHP_EOL;
+                break;
+            default:
+                $textmessage = 'Команда не найдена';
+                break;
+        }
+
+        Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
     }
 
     public static function ExecEvents() {
@@ -54,8 +89,7 @@ class Router
 
         switch ($type) {
             case 'bot_command':
-                $textmessage = 'Ответ на системную команду';
-                Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
+                self::ExecCmd($json);
                 break;
             case 'mention':
                 $textmessage = 'Ответ на сообщение с указанием ';
@@ -70,7 +104,8 @@ class Router
                 break;
             case 'group':
             case 'supergroup':
-                if ($json['message']['from']['username'] != 'a42cat') break;
+                if (!$_SESSION['STATUS']) break;
+                //if ($json['message']['from']['username'] != 'a42cat') break;
                 $textmessage = 'Ответ на сообщение в группе';
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
                 break;
