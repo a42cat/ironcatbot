@@ -22,8 +22,6 @@ class Message
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
         $result = curl_exec($ch);
-        //Log::WriteErrorLog(Config::getUrlApi() . '/sendMessage?chat_id=' . $chatid . '&reply_to_message_id='. $messageid .'&parse_mode=HTML&text=' . urlencode($text)."&disable_web_page_preview=".$preview, 'LOG_CALL');
-        //LOG::WriteErrorLog($result, 'RESULT');
         return $result;
     }
 }
