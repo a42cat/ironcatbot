@@ -75,7 +75,6 @@ class Router
                 $textmessage = 'Команда не найдена';
                 break;
         }
-        Log::SendLog($cmd[0], 'CMD');
         Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
     }
 
@@ -86,6 +85,7 @@ class Router
 
         $jsonmessage = json_encode($json);
         Log::SendLog($jsonmessage, $type);
+        Log::SendLog('status: '.$_SESSION['STATUS'], 'check session');
 
         switch ($type) {
             case 'bot_command':
@@ -107,7 +107,6 @@ class Router
                 //if (!$_SESSION['STATUS']) break;
                 if ($json['message']['from']['username'] != 'a42cat') break;
                 $textmessage = 'Ответ на сообщение в группе';
-                Log::SendLog('session: '.$_SESSION['STATUS'], 'check session');
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
                 break;
         }
