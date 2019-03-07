@@ -23,9 +23,9 @@ class Router
         $json = self::getJson();
         if ($json['message']) {
             if ($json['message']['entities']) {
-                $type = $json['message']['entities']['type'];
+                $type = $json['message']['entities'][0]['type'];
             } else {
-                $type = $json['message']['chat'][0]['type'];
+                $type = $json['message']['chat']['type'];
             }
         } elseif ($json['channel_post']) {
             $type = $json['channel_post']['chat']['type'];
