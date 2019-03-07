@@ -47,7 +47,8 @@ class Router
         switch ($type) {
             case 'bot_command':
                 $textmessage = 'Ответ на системную команду';
-                Message::sendMessage($json, $json['message']['chat']['id'], $json['message_id'], true);
+                $jsonmessage = '```'.json_encode($json).'```';
+                Message::sendMessage($jsonmessage, $json['message']['chat']['id'], $json['message_id'], true);
                 break;
             case 'private':
                 $textmessage = 'Ответ на сообщение в личке';
