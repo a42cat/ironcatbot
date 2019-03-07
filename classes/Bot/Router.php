@@ -73,7 +73,7 @@ class Router
                 $textmessage = 'Команда не найдена';
                 break;
         }
-
+        Log::SendLog($cmd[0]);
         Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
     }
 
