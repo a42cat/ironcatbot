@@ -65,15 +65,15 @@ class Router
                 break;
             case '/help':
                 $textmessage = 'Список команд бота'.PHP_EOL;
-                $textmessage = '/start : Запускает работу бота'.PHP_EOL;
-                $textmessage = '/stop : Останавливает работу бота'.PHP_EOL;
-                $textmessage = '/auth : Авторизаций бота в движке'.PHP_EOL;
+                $textmessage .= '/start : Запускает работу бота'.PHP_EOL;
+                $textmessage .= '/stop : Останавливает работу бота'.PHP_EOL;
+                $textmessage .= '/auth : Авторизаций бота в движке'.PHP_EOL;
                 break;
             default:
                 $textmessage = 'Команда не найдена';
                 break;
         }
-        Log::SendLog($cmd[0]);
+        Log::SendLog($cmd[0], 'CMD');
         Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'], true);
     }
 
