@@ -25,7 +25,7 @@ class Router
             if ($json['message']['entities']) {
                 $type = $json['message']['entities']['type'];
             } else {
-                $type = $json['message']['chat']['type'];
+                $type = $json['message']['chat'][0]['type'];
             }
         } elseif ($json['channel_post']) {
             $type = $json['channel_post']['chat']['type'];
@@ -37,7 +37,11 @@ class Router
         return $type;
 
     }
-    
+
+    public static function ExecCmd($json) {
+
+    }
+
     public static function ExecEvents() {
 
         session_start();
