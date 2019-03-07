@@ -37,6 +37,8 @@ class Router
         
         $json = self::getJson();
         $type = self::getTypes();
+
+        print_r($json);
         
         if ($json) {
             Log::WriteErrorLog(json_encode($json), $type);
