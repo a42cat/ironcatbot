@@ -60,6 +60,7 @@ class Router
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message_id'], true);
                 break;
             case 'group':
+            case 'supergroup':
                 $textmessage = 'Ответ на сообщение в группе';
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message_id'], true);
                 break;
