@@ -57,11 +57,11 @@ class Router
             case '/auth':
                 if ($cmd[1] == '' || $cmd[2] == '') {
                     $textmessage = 'Введите логин и пароль в формате:'.PHP_EOL;
-                    $textmessage = '/auth login password'.PHP_EOL;
+                    $textmessage .= '/auth login password'.PHP_EOL;
                 } else {
                     $textmessage = 'Проверка авторизации'.PHP_EOL;
-                    $textmessage = 'Выполняю операций с движком...'.PHP_EOL;
-                    $textmessage = 'Авторизация успешна (нет)'.PHP_EOL;
+                    $textmessage .= 'Выполняю операций с движком...'.PHP_EOL;
+                    $textmessage .= 'Авторизация успешна (нет)'.PHP_EOL;
                 }
 
                 break;
