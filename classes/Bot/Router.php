@@ -39,7 +39,7 @@ class Router
     }
 
     public static function ExecCmd($json) {
-        $cmd = explode(' ', $json['text']);
+        $cmd = explode(' ', $json['message']['text']);
         $cmd[0] = strtolower($cmd[0]);
         $cmd[0] = str_replace('@ironcatbot', '', $cmd[0]);
 
