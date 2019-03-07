@@ -21,12 +21,18 @@ class Router
     public static function getTypes() {
 
         $json = self::getJson();
-        
-        if ($json['message']['entities']) {
-            $type = $json['message']['entities']['type'];
+        if ($json['message']) {
+            if ($json['message']['entities']) {
+                $type = $json['message']['entities']['type'];
+            } else {
+                $type = $json['message']['chat']['type'];
+            }
+        } elseif ($json['channel_post']) {
+            $type = $json['channel_post']['chat']['type'];
         } else {
-            $type = $json['message']['chat']['type'];
+            $type = 'unknown';
         }
+
         
         return $type;
 
@@ -46,6 +52,8 @@ class Router
             case 'bot_command':
                 $textmessage = 'Ответ на системную команду';
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message_id'], true);
+                break;
+            case 'channel':
                 break;
             case 'private':
                 $textmessage = 'Ответ на сообщение в личке';

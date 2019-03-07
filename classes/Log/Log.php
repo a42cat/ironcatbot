@@ -16,6 +16,6 @@ class Log
     static $message = '';
     
     public static function SendLog($message, $type) {
-        Message::sendMessage($message, 201090619, 0, true);
+        Message::sendMessage($message, -1001454081281, 0, true);
     }
 }
