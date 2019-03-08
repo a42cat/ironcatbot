@@ -6,7 +6,7 @@
  * Time: 15:05
  */
 
-namespace IronCatBot\Classes\Log;
+namespace IronCatBot\Log;
 use IronCatBot\IronCatBot\ICBot;
 use IronCatBot\IronCatBot\Types\Message;
 

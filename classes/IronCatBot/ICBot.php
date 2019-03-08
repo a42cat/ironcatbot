@@ -20,7 +20,7 @@ class ICBot
 
     public $DOCROOT = '';
 
-    public $TOKEN = '';
+    public static $TOKEN = '';
 
     public function __construct()
     {
@@ -28,9 +28,9 @@ class ICBot
         $this->DOCROOT = $_SERVER['DOCUMENT_ROOT'];
     }
 
-    public function getUrlApi()
+    public static function getUrlApi()
     {
-        return self::URL_API . $this->TOKEN;
+        return self::URL_API . self::$TOKEN;
     }
 
     public static function getJson()
