@@ -27,7 +27,7 @@ try {
         ltrim($db["path"], "/")
     ));*/
 
-    $group = $pdo->query("SELECT * FROM group");
+    $group = $pdo->query("SELECT * FROM public.group");
     $results = $group->fetch();
 
     Debug::pr($results);
