@@ -7,9 +7,10 @@
  */
 
 namespace IronCatBot\Classes\Log;
-use IronCatBot\Classes\Bot\Types\Message;
+use IronCatBot\IronCatBot\ICBot;
+use IronCatBot\IronCatBot\Types\Message;
 
-class Log
+class Log extends ICBot
 
 {
     static $message = '';

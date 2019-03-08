@@ -6,7 +6,7 @@
  * Time: 17:10
  */
 
-namespace IronCatBot\Classes\Bot;
+namespace IronCatBot;
 
 use IronCatBot\Classes\Log\Log;
 use IronCatBot\Classes\Bot\Types\Message;
@@ -14,9 +14,7 @@ use IronCatBot\Classes\Bot\Types\Message;
 class Router
 {
    
-    public static function getJson() {
-        return json_decode(file_get_contents('php://input'), TRUE);
-    }
+
     
     public static function getTypes() {
 

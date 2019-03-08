@@ -27,11 +27,5 @@ class Config
         return $_SERVER['DOCUMENT_ROOT'];
     }
     
-    public static function getUrlApi() {
-        
-        $result = self::URL_API . self::GetToken();
-        
-        return $result;
-        
-    }
+
 }

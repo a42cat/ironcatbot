@@ -1,11 +1,10 @@
 {
   "require" : {
-    "telegram-bot/api": "^2.3"
+    "ext-json": "*"
   },
   "autoload" : {
     "psr-4" : {
-      "IronCatBot\\Classes\\" : "classes/"
+      "IronCatBot\\" : "classes"
     }
-  },
-  "require-dev": {}
+  }
 }
