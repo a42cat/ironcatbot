@@ -9,8 +9,7 @@ use IronCatBot\Debug\Debug;
 try {
     $bot = new ICBot();
     $json = $bot->getJson();
-    Debug::SendLog(json_encode($json),'json');
-    Debug::SendLog(json_encode($json),'types');
+    Debug::SendLog(json_encode($json),$bot->getTypes());
 
 } catch (Exception $e) {
     echo 'Выброшено исключение: ',  $e->getMessage(), "\n";
