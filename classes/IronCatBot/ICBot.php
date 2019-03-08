@@ -40,6 +40,14 @@ class ICBot
         return json_decode(file_get_contents('php://input'), true);
     }
 
+    public function getAuthor() {
+        $json = self::getJson();
+        if ($this->getTypes() != 'mention') {
+            return $json['message']['from']['username'];
+        }
+
+    }
+
     public function getTypes()
     {
 

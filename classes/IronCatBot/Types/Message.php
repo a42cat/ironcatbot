@@ -18,7 +18,6 @@ class Message extends ICBot
         curl_setopt($ch, CURLOPT_URL, parent::getUrlApi() . '/sendMessage?chat_id=' . $chatid . '&reply_to_message_id='. $messageid .'&parse_mode=HTML&text=' . urlencode($text)."&disable_web_page_preview=".$preview);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
-        $result = curl_exec($ch);
-        return $result;
+        curl_exec($ch);
     }
 }

@@ -22,6 +22,6 @@ class Debug extends ICBot
     }
 
     public static function SendLog($message, $type) {
-        return Message::sendMessage($type.PHP_EOL.$message, -1001454081281, 0, true);
+        Message::sendMessage($type.PHP_EOL.$message, -1001454081281, 0, true);
     }
 }
