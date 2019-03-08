@@ -12,11 +12,6 @@ try {
 
     $db = parse_url(getenv("DATABASE_URL"));
 
-    $options = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ];
-
     $pdo = new PDO("pgsql:" . sprintf(
         "host=%s;port=%s;user=%s;password=%s;dbname=%s",
         $db["host"],
@@ -24,7 +19,7 @@ try {
         $db["user"],
         $db["pass"],
         ltrim($db["path"], "/")
-    ), $options);
+    ));
 
     $group = $pdo->query("SELECT * FROM group");
     $results = $group->fetch(PDO::FETCH_ASSOC);
