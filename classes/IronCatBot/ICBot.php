@@ -8,8 +8,7 @@
 
 namespace IronCatBot\IronCatBot;
 
-/*use IronCatBot\Classes\Bot\Config\Config;
-use IronCatBot\Classes\Log\Log;*/
+use IronCatBot\Debug\Debug;
 
 class ICBot
 {
@@ -39,6 +38,26 @@ class ICBot
     public function getJson()
     {
         return json_decode(file_get_contents('php://input'), true);
+    }
+
+    public function getTypes()
+    {
+
+        $json = self::getJson();
+        if ($json['message']) {
+            if ($json['message']['entities']) {
+                $type = $json['message']['entities'][0]['type'];
+            } else {
+                $type = $json['message']['chat']['type'];
+            }
+        } elseif ($json['channel_post']) {
+            $type = $json['channel_post']['chat']['type'];
+        } else {
+            $type = 'unknown';
+        }
+
+        return $type;
+
     }
 
 }
