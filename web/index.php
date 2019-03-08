@@ -21,7 +21,9 @@ try {
         ltrim($db["path"], "/")
     ));
 
+    Debug::pr($db);
     Debug::pr($pdo);
+    die();
 
     $json = $bot->getJson();
     $type = $bot->getTypes();
