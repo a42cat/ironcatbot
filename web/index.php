@@ -8,6 +8,7 @@ use IronCatBot\Log\Log;
 
 try {
     $bot = new ICBot();
+    var_dump($bot::getJson());
     Log::SendLog(json_encode($bot::getJson()), 'json');
 
 } catch (Exception $e) {

@@ -16,6 +16,6 @@ class Log extends ICBot
     static $message = '';
     
     public static function SendLog($message, $type) {
-        Message::sendMessage($type.PHP_EOL.$message, -1001454081281, 0, true);
+        return Message::sendMessage($type.PHP_EOL.$message, -1001454081281, 0, true);
     }
 }
