@@ -8,8 +8,8 @@ use IronCatBot\Debug\Debug;
 
 try {
     $bot = new ICBot();
-    Debug::SendLog($bot->getJson());
-    Debug::SendLog($bot->getTypes());
+    Debug::SendLog($bot->getJson(),'json');
+    Debug::SendLog($bot->getTypes(),'types');
 
 } catch (Exception $e) {
     echo 'Выброшено исключение: ',  $e->getMessage(), "\n";
