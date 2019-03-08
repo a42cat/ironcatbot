@@ -1,6 +1,7 @@
 {
   "require" : {
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-PDO": "^7.1"
   },
   "autoload" : {
     "psr-4" : {
