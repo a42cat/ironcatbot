@@ -22,7 +22,7 @@ try {
     ));
 
     $group = $pdo->query("SELECT * FROM group");
-    $results = $group->fetch(PDO::FETCH_ASSOC);
+    $results = $group->fetch();
 
     Debug::pr($results);
     die();
