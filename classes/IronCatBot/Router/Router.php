@@ -84,6 +84,9 @@ class Router extends ICBot
                 break;
             case 'group':
             case 'supergroup':
+
+                $pdo = parent::getPDO();
+
                 //if (!$_SESSION['STATUS']) break;
                 $textmessage = 'Ответ на сообщение в группе';
                 Message::sendMessage($textmessage, $json['message']['chat']['id'], $json['message']['message_id'],

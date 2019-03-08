@@ -9,9 +9,15 @@ use IronCatBot\Router\Router;
 
 try {
     $bot = new ICBot();
+
+    $pdo = $bot->getPDO();
+    Debug::pr($pdo);
+    die();
     $json = $bot->getJson();
     $type = $bot->getTypes();
     $author = $bot->getAuthor();
+
+
 
     if ($author == 'a42cat') {
         $router = new Router();
