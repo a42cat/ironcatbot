@@ -68,7 +68,7 @@ class ICBot
 
     }
 
-    public function getPDO() {
+    /*public function getPDO() {
         $db = parse_url(getenv("DATABASE_URL"));
 
         $pdo = new PDO("pgsql:" . sprintf(
@@ -80,6 +80,6 @@ class ICBot
                 ltrim($db["path"], "/")
             ));
         return $pdo;
-    }
+    }*/
 
 }
