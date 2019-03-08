@@ -12,14 +12,20 @@ try {
 
     $db = parse_url(getenv("DATABASE_URL"));
 
-    $pdo = new PDO("pgsql:" . sprintf(
+    $options = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ];
+
+    $pdo = new PDO("pgsql:dbname=".ltrim($db["path"], "/").";host=".$db['host']."\"", $db['user'], $db['pass'], $options);
+    /*$pdo = new PDO("pgsql:" . sprintf(
         "host=%s;port=%s;user=%s;password=%s;dbname=%s",
         $db["host"],
         $db["port"],
         $db["user"],
         $db["pass"],
         ltrim($db["path"], "/")
-    ));
+    ));*/
 
     $group = $pdo->query("SELECT * FROM group");
     $results = $group->fetch();
