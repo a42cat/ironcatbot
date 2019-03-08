@@ -9,13 +9,18 @@ use IronCatBot\Router\Router;
 
 try {
     $bot = new ICBot();
+    $json = $bot->getJson();
+    $type = $bot->getTypes();
+    $author = $bot->getAuthor();
 
-    $router = new Router();
-    $router->ExecEvents();
+    if ($author == 'a42cat') {
+        $router = new Router();
+        $router->ExecEvents();
+    }
 
-    //Debug::SendLog(json_encode($json),$bot->getTypes());
+    Debug::SendLog(json_encode($json), $type);
 
 } catch (Exception $e) {
-    echo 'Выброшено исключение: ',  $e->getMessage(), "\n";
+    echo 'Выброшено исключение: ', $e->getMessage(), "\n";
 }
 
