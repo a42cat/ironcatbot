@@ -20,20 +20,23 @@ class ICBot
 
     public $DOCROOT = '';
 
-    public static $TOKEN = '';
-
     public function __construct()
     {
-        $this->TOKEN = getenv('TOKEN');
         $this->DOCROOT = $_SERVER['DOCUMENT_ROOT'];
+    }
+
+    public static function GetToken()
+    {
+        return getenv('TOKEN');
     }
 
     public static function getUrlApi()
     {
-        return self::URL_API . self::$TOKEN;
+
+        return self::URL_API . self::GetToken();
     }
 
-    public static function getJson()
+    public function getJson()
     {
         return json_decode(file_get_contents('php://input'), true);
     }
